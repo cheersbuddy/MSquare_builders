@@ -11,135 +11,296 @@
         </div>
     </section>
 
-    <!-- Services intro -->
-    <section class="py-20 bg-white">
+    <section class="py-24 bg-white overflow-hidden relative" id="services-portfolio">
+        <div
+            class="absolute top-0 right-0 w-1/3 h-1/3 bg-gradient-to-br from-blue-50 to-transparent rounded-bl-full -z-10 opacity-60">
+        </div>
+        <div
+            class="absolute bottom-0 left-0 w-1/3 h-1/3 bg-gradient-to-tr from-slate-50 to-transparent rounded-tr-full -z-10 opacity-60">
+        </div>
+    
         <div class="max-w-7xl mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Our Service Portfolio</h2>
-                <p class="text-lg text-gray-600 max-w-2xl mx-auto">From residential homes to major infrastructure, we
-                    deliver excellence across all construction sectors in Tamil Nadu.</p>
+    
+            <div class="text-center mb-20 scroll-reveal">
+                <span class="text-blue-600 font-semibold tracking-wider text-sm uppercase mb-2 block">What We Do</span>
+                <h2 class="text-3xl lg:text-5xl font-bold text-gray-900 mb-6">Our Service Portfolio</h2>
+                <p class="text-xl text-gray-500 max-w-2xl mx-auto leading-relaxed">
+                    From residential homes to major infrastructure, delivering excellence across all construction sectors in
+                    Tamil Nadu.
+                </p>
             </div>
-
-            <div class="space-y-16">
-
-                <!-- Residential -->
-                <div class="grid lg:grid-cols-2 gap-12 items-center">
-                    <div>
+    
+            <div class="space-y-24">
+    
+                <div class="service-row grid lg:grid-cols-2 gap-12 lg:gap-20 items-center group">
+                    <div class="order-2 lg:order-1 scroll-reveal slide-right">
                         <div class="flex items-center mb-6">
-                            <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mr-4">
-                                <!-- icon -->
-                                <svg class="w-6 h-6 text-blue-600" viewBox="0 0 24 24" fill="none"
-                                    stroke="currentColor">
+                            <div
+                                class="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center mr-5 shadow-sm group-hover:bg-blue-600 group-hover:text-white transition-all duration-300">
+                                <svg class="w-7 h-7 text-blue-600 group-hover:text-white transition-colors"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round">
                                     <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
                                     <polyline points="9 22 9 12 15 12 15 22" />
                                 </svg>
                             </div>
-                            <h3 class="text-2xl lg:text-3xl font-bold text-gray-900">Residential Construction</h3>
+                            <h3 class="text-3xl font-bold text-gray-900">Residential Construction</h3>
                         </div>
-
-                        <p class="text-lg text-gray-600 mb-6 leading-relaxed">Complete home construction services from
-                            foundation to finishing with Tamil Nadu building code compliance.</p>
-
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mb-6">
-                            <div class="flex items-center space-x-2"><svg class="w-4 h-4 text-green-500"
-                                    viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-                                    <path d="m9 11 3 3L22 4" />
-                                </svg><span class="text-gray-700">Individual Houses &amp; Villas</span></div>
-                            <div class="flex items-center space-x-2"><svg class="w-4 h-4 text-green-500"
-                                    viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-                                    <path d="m9 11 3 3L22 4" />
-                                </svg><span class="text-gray-700">Apartments &amp; Residential Complexes</span></div>
-                            <div class="flex items-center space-x-2"><svg class="w-4 h-4 text-green-500"
-                                    viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-                                    <path d="m9 11 3 3L22 4" />
-                                </svg><span class="text-gray-700">Renovation &amp; Extensions</span></div>
-                            <div class="flex items-center space-x-2"><svg class="w-4 h-4 text-green-500"
-                                    viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-                                    <path d="m9 11 3 3L22 4" />
-                                </svg><span class="text-gray-700">Interior &amp; Exterior Design</span></div>
+    
+                        <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                            Complete home construction services from foundation to finishing. We ensure your dream home
+                            meets all Tamil Nadu building codes with premium craftsmanship.
+                        </p>
+    
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+                            <div class="feature-item">
+                                <span class="check-box"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="none"
+                                        stroke="currentColor" stroke-width="3">
+                                        <path d="M20 6 9 17l-5-5" />
+                                    </svg></span>
+                                <span>Individual Houses & Villas</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="check-box"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="none"
+                                        stroke="currentColor" stroke-width="3">
+                                        <path d="M20 6 9 17l-5-5" />
+                                    </svg></span>
+                                <span>Apartments & Complexes</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="check-box"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="none"
+                                        stroke="currentColor" stroke-width="3">
+                                        <path d="M20 6 9 17l-5-5" />
+                                    </svg></span>
+                                <span>Renovation & Extensions</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="check-box"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="none"
+                                        stroke="currentColor" stroke-width="3">
+                                        <path d="M20 6 9 17l-5-5" />
+                                    </svg></span>
+                                <span>Interior & Exterior Design</span>
+                            </div>
                         </div>
-
-                        <div class="flex gap-3">
-                            <a class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors inline-flex items-center space-x-2"
-                                href="/contact">Get Quote</a>
-                            <a class="px-6 py-3 rounded-lg border border-gray-200 text-gray-700"
-                                href="/services#residential">Learn More</a>
+    
+                        <div class="flex flex-wrap gap-4">
+                            <a href="/contact" class="btn-primary">Get Quote</a>
+                            <a href="/services#residential" class="btn-secondary">Learn More</a>
                         </div>
                     </div>
-
-                    <div>
-                        <img src="https://images.pexels.com/photos/323705/pexels-photo-323705.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=500&amp;h=300&amp;fit=crop"
-                            alt="Commercial Construction" class="rounded-lg shadow-xl w-full h-80 object-cover">
+    
+                    <div class="order-1 lg:order-2 relative scroll-reveal slide-left">
+                        <div
+                            class="relative rounded-2xl overflow-hidden shadow-2xl transform transition-transform duration-700 group-hover:scale-[1.02]">
+                            <div
+                                class="absolute inset-0 bg-blue-900/10 group-hover:bg-transparent transition-colors duration-500 z-10">
+                            </div>
+                            <img src="https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=800"
+                                alt="Residential Construction"
+                                class="w-full h-[400px] object-cover object-center transform transition-transform duration-1000 group-hover:scale-110">
+                        </div>
+                        <div
+                            class="absolute -bottom-6 -left-6 z-20 bg-white p-4 rounded-xl shadow-xl flex items-center gap-3 animate-float hidden lg:flex">
+                            <div
+                                class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center text-green-600 font-bold">
+                                15+</div>
+                            <div class="text-sm font-medium text-gray-700">Years of<br>Excellence</div>
+                        </div>
                     </div>
                 </div>
-
-                <!-- Commercial -->
-                <div class="grid lg:grid-cols-2 gap-12 items-center lg:grid-flow-col-dense">
-                    <div class="lg:col-start-2">
+    
+                <div class="service-row grid lg:grid-cols-2 gap-12 lg:gap-20 items-center group">
+                    <div class="relative scroll-reveal slide-right">
+                        <div
+                            class="relative rounded-2xl overflow-hidden shadow-2xl transform transition-transform duration-700 group-hover:scale-[1.02]">
+                            <div
+                                class="absolute inset-0 bg-blue-900/10 group-hover:bg-transparent transition-colors duration-500 z-10">
+                            </div>
+                            <img src="https://images.pexels.com/photos/323705/pexels-photo-323705.jpeg?auto=compress&cs=tinysrgb&w=800"
+                                alt="Commercial Construction"
+                                class="w-full h-[400px] object-cover object-center transform transition-transform duration-1000 group-hover:scale-110">
+                        </div>
+                        <div class="absolute -top-6 -right-6 z-20 bg-white p-4 rounded-xl shadow-xl flex items-center gap-3 animate-float hidden lg:flex"
+                            style="animation-delay: 1s;">
+                            <div
+                                class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold">
+                                100%</div>
+                            <div class="text-sm font-medium text-gray-700">On-Time<br>Delivery</div>
+                        </div>
+                    </div>
+    
+                    <div class="scroll-reveal slide-left">
                         <div class="flex items-center mb-6">
-                            <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mr-4">
-                                <svg class="w-6 h-6 text-blue-600" viewBox="0 0 24 24" fill="none"
-                                    stroke="currentColor">
+                            <div
+                                class="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center mr-5 shadow-sm group-hover:bg-blue-600 group-hover:text-white transition-all duration-300">
+                                <svg class="w-7 h-7 text-blue-600 group-hover:text-white transition-colors"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round">
                                     <path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z" />
                                     <path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2" />
                                 </svg>
                             </div>
-                            <h3 class="text-2xl lg:text-3xl font-bold text-gray-900">Commercial Construction</h3>
+                            <h3 class="text-3xl font-bold text-gray-900">Commercial Construction</h3>
                         </div>
-
-                        <p class="text-lg text-gray-600 mb-6 leading-relaxed">Professional commercial spaces designed
-                            for business growth with modern amenities and safety standards.</p>
-
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mb-6">
-                            <div class="flex items-center space-x-2"><svg class="w-4 h-4 text-green-500"
-                                    viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-                                    <path d="m9 11 3 3L22 4" />
-                                </svg><span class="text-gray-700">Office Buildings &amp; Complexes</span></div>
-                            <div class="flex items-center space-x-2"><svg class="w-4 h-4 text-green-500"
-                                    viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-                                    <path d="m9 11 3 3L22 4" />
-                                </svg><span class="text-gray-700">Shopping Centers &amp; Malls</span></div>
-                            <div class="flex items-center space-x-2"><svg class="w-4 h-4 text-green-500"
-                                    viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-                                    <path d="m9 11 3 3L22 4" />
-                                </svg><span class="text-gray-700">Hotels &amp; Hospitality Projects</span></div>
-                            <div class="flex items-center space-x-2"><svg class="w-4 h-4 text-green-500"
-                                    viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-                                    <path d="m9 11 3 3L22 4" />
-                                </svg><span class="text-gray-700">Educational &amp; Healthcare Facilities</span></div>
+    
+                        <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                            Professional commercial spaces designed for business growth. We handle everything from
+                            structural integrity to modern amenities and safety compliance.
+                        </p>
+    
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+                            <div class="feature-item">
+                                <span class="check-box"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="none"
+                                        stroke="currentColor" stroke-width="3">
+                                        <path d="M20 6 9 17l-5-5" />
+                                    </svg></span>
+                                <span>Office Buildings & Complexes</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="check-box"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="none"
+                                        stroke="currentColor" stroke-width="3">
+                                        <path d="M20 6 9 17l-5-5" />
+                                    </svg></span>
+                                <span>Shopping Centers & Malls</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="check-box"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="none"
+                                        stroke="currentColor" stroke-width="3">
+                                        <path d="M20 6 9 17l-5-5" />
+                                    </svg></span>
+                                <span>Hotels & Hospitality</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="check-box"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="none"
+                                        stroke="currentColor" stroke-width="3">
+                                        <path d="M20 6 9 17l-5-5" />
+                                    </svg></span>
+                                <span>Educational Facilities</span>
+                            </div>
                         </div>
-
-                        <div class="flex gap-3">
-                            <a class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors inline-flex items-center space-x-2"
-                                href="/contact">Get Quote</a>
-                            <a class="px-6 py-3 rounded-lg border border-gray-200 text-gray-700"
-                                href="/services#commercial">Learn More</a>
+    
+                        <div class="flex flex-wrap gap-4">
+                            <a href="/contact" class="btn-primary">Get Quote</a>
+                            <a href="/services#commercial" class="btn-secondary">Learn More</a>
                         </div>
-                    </div>
-
-                    <div>
-                        <img src="https://images.pexels.com/photos/323705/pexels-photo-323705.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=500&amp;h=300&amp;fit=crop"
-                            alt="Commercial Construction" class="rounded-lg shadow-xl w-full h-80 object-cover">
                     </div>
                 </div>
-
-                <!-- Industrial -->
-                <!-- Repeat same pattern for Industrial, Infrastructure, Tender Works, Renovation... -->
-                <!-- For brevity add the rest from the HTML you prepared, swapping image filenames to /images/services/... -->
-
+    
             </div>
         </div>
-    </section>
+    
+        <style>
+            /* --- Component Styles --- */
+    
+            /* List Items */
+            .feature-item {
+                display: flex;
+                align-items: center;
+                gap: 0.75rem;
+                color: #475569;
+                font-weight: 500;
+            }
+    
+            .check-box {
+                width: 1.5rem;
+                height: 1.5rem;
+                border-radius: 50%;
+                background: #dbeafe;
+                /* blue-100 */
+                color: #2563eb;
+                /* blue-600 */
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-shrink: 0;
+            }
+    
+            /* Buttons */
+            .btn-primary {
+                background-color: #2563eb;
+                color: white;
+                padding: 0.75rem 2rem;
+                border-radius: 0.5rem;
+                font-weight: 600;
+                transition: all 0.3s ease;
+                box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2);
+            }
+    
+            .btn-primary:hover {
+                background-color: #1d4ed8;
+                transform: translateY(-2px);
+                box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.3);
+            }
+    
+            .btn-secondary {
+                background-color: transparent;
+                color: #334155;
+                padding: 0.75rem 2rem;
+                border-radius: 0.5rem;
+                font-weight: 600;
+                border: 1px solid #e2e8f0;
+                transition: all 0.3s ease;
+            }
+    
+            .btn-secondary:hover {
+                border-color: #94a3b8;
+                background-color: #f8fafc;
+                color: #0f172a;
+            }
+    
+            /* --- Animations --- */
+    
+            /* Float Animation for badges */
+            @keyframes float {
+    
+                0%,
+                100% {
+                    transform: translateY(0);
+                }
+    
+                50% {
+                    transform: translateY(-10px);
+                }
+            }
+    
+            .animate-float {
+                animation: float 6s ease-in-out infinite;
+            }
+    
+            /* Scroll Reveal Base Classes */
+            .scroll-reveal {
+                opacity: 0;
+                transition: all 1s cubic-bezier(0.165, 0.84, 0.44, 1);
+            }
+    
+            .slide-right {
+                transform: translateX(-30px);
+            }
+    
+            .slide-left {
+                transform: translateX(30px);
+            }
+    
+            .scroll-reveal.active {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        </style>
+    
+        <script>
+            // Simple Intersection Observer for scroll animations
+            document.addEventListener('DOMContentLoaded', () => {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('active');
+                        }
+                    });
+                }, { threshold: 0.15 });
 
-    <!-- Why choose / Process / CTA (copy the rest of your HTML here) -->
-    <!-- ... -->
+                document.querySelectorAll('.scroll-reveal').forEach(el => observer.observe(el));
+            });
+        </script>
+        </section>
 
 </div>

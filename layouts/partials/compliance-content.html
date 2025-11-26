@@ -1,0 +1,1173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certifications Carousel</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+<style>
+    /* Container Setup */
+    .cert-carousel-container {
+        width: 100%;
+        padding-top: 50px;
+        padding-bottom: 50px;
+        overflow: hidden;
+        /* Hide overflow from 3D effect */
+    }
+
+    /* Swiper Slide Sizing */
+    .swiper-slide {
+        background-position: center;
+        background-size: cover;
+        width: 380px;
+        /* Fixed width for optimal 3D effect */
+        height: auto;
+        /* Enhance 3D feel */
+        transition: all 0.3s ease;
+    }
+
+    /* The Card Styling */
+    .cert-card {
+        background: white;
+        border-radius: 1rem;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        border: 1px solid #e5e7eb;
+        /* 3D Shadows */
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        position: relative;
+        overflow: hidden;
+        user-select: none;
+        /* Prevents text selection while dragging */
+    }
+
+    /* Active Slide specific styling (Center Card) */
+    .swiper-slide-active .cert-card {
+        border-color: #3b82f6;
+        /* Blue highlight */
+        box-shadow: 0 25px 50px -12px rgba(59, 130, 246, 0.25);
+        /* Blue glow */
+    }
+
+    /* Blur/Fade effect for side cards to mimic focus */
+    .swiper-slide:not(.swiper-slide-active) .cert-card {
+        opacity: 0.9;
+        filter: blur(0.5px);
+    }
+
+    /* Custom Pagination */
+    .swiper-pagination-bullet {
+        background: #cbd5e1;
+        opacity: 1;
+    }
+
+    .swiper-pagination-bullet-active {
+        background: #2563eb;
+        width: 24px;
+        border-radius: 4px;
+        transition: width 0.3s ease;
+    }
+
+    /* Glass effect for status badge */
+    .status-badge {
+        background: rgba(220, 252, 231, 0.8);
+        backdrop-filter: blur(4px);
+    }
+
+    @media (max-width: 640px) {
+        .swiper-slide {
+            width: 85%;
+            /* Responsive width for mobile */
+        }
+    }
+</style>
+</head>
+<body>
+<div class="pt-0">
+    <section class="bg-gradient-to-r from-blue-900 to-blue-700 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center">
+                <h1 class="text-4xl lg:text-5xl font-bold mb-6">Compliance &amp; Certifications</h1>
+                <p class="text-xl max-w-3xl mx-auto leading-relaxed">Complete regulatory compliance and certifications
+                    for government construction projects in Tamil Nadu.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Government Approved &amp; Certified</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">MSQUARE Builders maintains full compliance with all
+                    Tamil Nadu government regulations and international quality standards.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <div class="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow">
+                    <div class="flex items-start justify-between mb-4">
+                        <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-building text-blue-600">
+                                <rect width="16" height="20" x="4" y="2" rx="2" ry="2"></rect>
+                                <path d="M9 22v-4h6v4"></path>
+                                <path d="M8 6h.01"></path>
+                                <path d="M16 6h.01"></path>
+                                <path d="M12 6h.01"></path>
+                                <path d="M12 10h.01"></path>
+                                <path d="M12 14h.01"></path>
+                                <path d="M16 10h.01"></path>
+                                <path d="M16 14h.01"></path>
+                                <path d="M8 10h.01"></path>
+                                <path d="M8 14h.01"></path></svg>
+                        </div>
+                        <span
+                            class="px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">Active</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-2">Tamil Nadu PWD Registration</h3>
+                    <p class="text-gray-600 text-sm mb-4 leading-relaxed">Authorized contractor for government
+                        construction projects in Tamil Nadu</p>
+                    <div class="space-y-2">
+                        <div class="flex justify-between text-sm"><span class="text-gray-500">Certificate
+                                No:</span><span class="font-mono text-gray-900">TN/PWD/2018/001234</span></div>
+                        <div class="flex justify-between text-sm"><span class="text-gray-500">Authority:</span><span
+                                class="text-gray-900">Tamil Nadu Public Works Department</span></div>
+                        <div class="flex justify-between text-sm"><span class="text-gray-500">Valid Until:</span><span
+                                class="font-medium text-gray-900">2025-12-31</span></div>
+                    </div>
+                </div>
+
+
+                <div class="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow">
+                    <div class="flex items-start justify-between mb-4">
+                        <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-award text-blue-600">
+                                <circle cx="12" cy="8" r="6"></circle>
+                                <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"></path></svg>
+                        </div>
+                        <span
+                            class="px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">Active</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-2">ISO 9001:2015 Quality Management</h3>
+                    <p class="text-gray-600 text-sm mb-4 leading-relaxed">International quality management system
+                        certification</p>
+                    <div class="space-y-2">
+                        <div class="flex justify-between text-sm"><span class="text-gray-500">Certificate
+                                No:</span><span class="font-mono text-gray-900">ISO-QMS-2020-567890</span></div>
+                        <div class="flex justify-between text-sm"><span class="text-gray-500">Authority:</span><span
+                                class="text-gray-900">Bureau of Indian Standards</span></div>
+                        <div class="flex justify-between text-sm"><span class="text-gray-500">Valid Until:</span><span
+                                class="font-medium text-gray-900">2026-06-15</span></div>
+                    </div>
+                </div>
+
+
+                <div class="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow">
+                    <div class="flex items-start justify-between mb-4">
+                        <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-users text-blue-600">
+                                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="9" cy="7" r="4"></circle>
+                                <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                        </div>
+                        <span
+                            class="px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">Active</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-2">MSME Registration</h3>
+                    <p class="text-gray-600 text-sm mb-4 leading-relaxed">Registered Micro, Small and Medium Enterprise
+                    </p>
+                    <div class="space-y-2">
+                        <div class="flex justify-between text-sm"><span class="text-gray-500">Certificate
+                                No:</span><span class="font-mono text-gray-900">MSME-DI-TN-0123456789</span></div>
+                        <div class="flex justify-between text-sm"><span class="text-gray-500">Authority:</span><span
+                                class="text-gray-900">Ministry of Micro, Small &amp; Medium Enterprises</span></div>
+                        <div class="flex justify-between text-sm"><span class="text-gray-500">Valid Until:</span><span
+                                class="font-medium text-gray-900">Permanent</span></div>
+                    </div>
+                </div>
+
+
+                <div class="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow">
+                    <div class="flex items-start justify-between mb-4">
+                        <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-file-check text-blue-600">
+                                <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"></path>
+                                <path d="M14 2v4a2 2 0 0 0 2 2h4"></path>
+                                <path d="m9 15 2 2 4-4"></path></svg>
+                        </div>
+                        <span
+                            class="px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">Active</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-2">GST Registration</h3>
+                    <p class="text-gray-600 text-sm mb-4 leading-relaxed">Registered under Goods and Services Tax</p>
+                    <div class="space-y-2">
+                        <div class="flex justify-between text-sm"><span class="text-gray-500">Certificate
+                                No:</span><span class="font-mono text-gray-900">33AABCS1234C1Z5</span></div>
+                        <div class="flex justify-between text-sm"><span class="text-gray-500">Authority:</span><span
+                                class="text-gray-900">Goods and Services Tax Department</span></div>
+                        <div class="flex justify-between text-sm"><span class="text-gray-500">Valid Until:</span><span
+                                class="font-medium text-gray-900">Ongoing</span></div>
+                    </div>
+                </div>
+
+
+                <div class="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow">
+                    <div class="flex items-start justify-between mb-4">
+                        <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-leaf text-blue-600">
+                                <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path>
+                                <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path>
+                            </svg>
+                        </div>
+                        <span
+                            class="px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">Active</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-2">Environmental Clearance</h3>
+                    <p class="text-gray-600 text-sm mb-4 leading-relaxed">Environmental compliance for construction
+                        activities</p>
+                    <div class="space-y-2">
+                        <div class="flex justify-between text-sm"><span class="text-gray-500">Certificate
+                                No:</span><span class="font-mono text-gray-900">EC/TN/2022/ENV789</span></div>
+                        <div class="flex justify-between text-sm"><span class="text-gray-500">Authority:</span><span
+                                class="text-gray-900">Tamil Nadu Pollution Control Board</span></div>
+                        <div class="flex justify-between text-sm"><span class="text-gray-500">Valid Until:</span><span
+                                class="font-medium text-gray-900">2027-03-20</span></div>
+                    </div>
+                </div>
+
+
+                <div class="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow">
+                    <div class="flex items-start justify-between mb-4">
+                        <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shield text-blue-600">
+                                <path
+                                    d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path></svg>
+                        </div>
+                        <span
+                            class="px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">Active</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-2">Safety Protocol Certification</h3>
+                    <p class="text-gray-600 text-sm mb-4 leading-relaxed">Construction safety management system
+                        certification</p>
+                    <div class="space-y-2">
+                        <div class="flex justify-between text-sm"><span class="text-gray-500">Certificate
+                                No:</span><span class="font-mono text-gray-900">SPC/TN/2023/SAFE456</span></div>
+                        <div class="flex justify-between text-sm"><span class="text-gray-500">Authority:</span><span
+                                class="text-gray-900">Directorate of Industrial Safety &amp; Health</span></div>
+                        <div class="flex justify-between text-sm"><span class="text-gray-500">Valid Until:</span><span
+                                class="font-medium text-gray-900">2025-09-30</span></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section> -->
+
+    
+
+    
+    <section class="py-20 bg-blue-50 overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4">
+    
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Government Approved &amp; Certified</h2>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                        MSQUARE Builders maintains full compliance with all Tamil Nadu government regulations and
+                        international quality standards.
+                    </p>
+                </div>
+    
+                <div class="swiper certSwiper cert-carousel-container">
+                    <div class="swiper-wrapper">
+    
+                        <div class="swiper-slide">
+                            <div class="cert-card p-8">
+                                <div class="flex items-start justify-between mb-6">
+                                    <div class="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"
+                                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" class="text-blue-600">
+                                            <rect width="16" height="20" x="4" y="2" rx="2" ry="2"></rect>
+                                            <path d="M9 22v-4h6v4"></path>
+                                            <path d="M8 6h.01"></path>
+                                            <path d="M16 6h.01"></path>
+                                            <path d="M12 6h.01"></path>
+                                            <path d="M12 10h.01"></path>
+                                            <path d="M12 14h.01"></path>
+                                        </svg>
+                                    </div>
+                                    <span
+                                        class="status-badge px-3 py-1 rounded-full text-xs font-semibold text-green-800 border border-green-200">Active</span>
+                                </div>
+                                <h3 class="text-xl font-bold text-gray-900 mb-3">TN PWD Registration</h3>
+                                <p class="text-gray-600 text-sm mb-6 leading-relaxed flex-grow">Authorized contractor for
+                                    government construction projects in Tamil Nadu.</p>
+                                <div class="space-y-3 pt-4 border-t border-gray-100">
+                                    <div class="flex justify-between text-sm"><span class="text-gray-500">ID:</span><span
+                                            class="font-mono font-medium text-gray-900">TN/PWD/2018/1234</span></div>
+                                    <div class="flex justify-between text-sm"><span
+                                            class="text-gray-500">Authority:</span><span
+                                            class="text-gray-900 font-medium">TN Public Works Dept</span></div>
+                                    <div class="flex justify-between text-sm"><span class="text-gray-500">Valid:</span><span
+                                            class="text-blue-600 font-bold">2025-12-31</span></div>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class="swiper-slide">
+                            <div class="cert-card p-8">
+                                <div class="flex items-start justify-between mb-6">
+                                    <div class="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"
+                                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" class="text-blue-600">
+                                            <circle cx="12" cy="8" r="6"></circle>
+                                            <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"></path>
+                                        </svg>
+                                    </div>
+                                    <span
+                                        class="status-badge px-3 py-1 rounded-full text-xs font-semibold text-green-800 border border-green-200">Active</span>
+                                </div>
+                                <h3 class="text-xl font-bold text-gray-900 mb-3">ISO 9001:2015</h3>
+                                <p class="text-gray-600 text-sm mb-6 leading-relaxed flex-grow">International quality
+                                    management system certification ensuring excellence.</p>
+                                <div class="space-y-3 pt-4 border-t border-gray-100">
+                                    <div class="flex justify-between text-sm"><span class="text-gray-500">ID:</span><span
+                                            class="font-mono font-medium text-gray-900">ISO-QMS-2020-567</span></div>
+                                    <div class="flex justify-between text-sm"><span
+                                            class="text-gray-500">Authority:</span><span
+                                            class="text-gray-900 font-medium">Bureau of Indian Stds</span></div>
+                                    <div class="flex justify-between text-sm"><span class="text-gray-500">Valid:</span><span
+                                            class="text-blue-600 font-bold">2026-06-15</span></div>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class="swiper-slide">
+                            <div class="cert-card p-8">
+                                <div class="flex items-start justify-between mb-6">
+                                    <div class="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"
+                                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" class="text-blue-600">
+                                            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                                            <circle cx="9" cy="7" r="4"></circle>
+                                            <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                        </svg>
+                                    </div>
+                                    <span
+                                        class="status-badge px-3 py-1 rounded-full text-xs font-semibold text-green-800 border border-green-200">Active</span>
+                                </div>
+                                <h3 class="text-xl font-bold text-gray-900 mb-3">MSME Registration</h3>
+                                <p class="text-gray-600 text-sm mb-6 leading-relaxed flex-grow">Officially registered Micro,
+                                    Small and Medium Enterprise entity.</p>
+                                <div class="space-y-3 pt-4 border-t border-gray-100">
+                                    <div class="flex justify-between text-sm"><span class="text-gray-500">ID:</span><span
+                                            class="font-mono font-medium text-gray-900">MSME-TN-0123456</span></div>
+                                    <div class="flex justify-between text-sm"><span
+                                            class="text-gray-500">Authority:</span><span
+                                            class="text-gray-900 font-medium">Ministry of MSME</span></div>
+                                    <div class="flex justify-between text-sm"><span class="text-gray-500">Valid:</span><span
+                                            class="text-blue-600 font-bold">Permanent</span></div>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class="swiper-slide">
+                            <div class="cert-card p-8">
+                                <div class="flex items-start justify-between mb-6">
+                                    <div class="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"
+                                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" class="text-blue-600">
+                                            <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"></path>
+                                            <path d="M14 2v4a2 2 0 0 0 2 2h4"></path>
+                                            <path d="m9 15 2 2 4-4"></path>
+                                        </svg>
+                                    </div>
+                                    <span
+                                        class="status-badge px-3 py-1 rounded-full text-xs font-semibold text-green-800 border border-green-200">Active</span>
+                                </div>
+                                <h3 class="text-xl font-bold text-gray-900 mb-3">GST Registration</h3>
+                                <p class="text-gray-600 text-sm mb-6 leading-relaxed flex-grow">Fully compliant and
+                                    registered under Goods and Services Tax.</p>
+                                <div class="space-y-3 pt-4 border-t border-gray-100">
+                                    <div class="flex justify-between text-sm"><span class="text-gray-500">ID:</span><span
+                                            class="font-mono font-medium text-gray-900">33AABCS1234C1Z5</span></div>
+                                    <div class="flex justify-between text-sm"><span
+                                            class="text-gray-500">Authority:</span><span
+                                            class="text-gray-900 font-medium">GST Department</span></div>
+                                    <div class="flex justify-between text-sm"><span class="text-gray-500">Valid:</span><span
+                                            class="text-blue-600 font-bold">Ongoing</span></div>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class="swiper-slide">
+                            <div class="cert-card p-8">
+                                <div class="flex items-start justify-between mb-6">
+                                    <div class="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"
+                                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" class="text-blue-600">
+                                            <path
+                                                d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z">
+                                            </path>
+                                            <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path>
+                                        </svg>
+                                    </div>
+                                    <span
+                                        class="status-badge px-3 py-1 rounded-full text-xs font-semibold text-green-800 border border-green-200">Active</span>
+                                </div>
+                                <h3 class="text-xl font-bold text-gray-900 mb-3">Environmental Clear.</h3>
+                                <p class="text-gray-600 text-sm mb-6 leading-relaxed flex-grow">Green compliance for
+                                    construction activities.</p>
+                                <div class="space-y-3 pt-4 border-t border-gray-100">
+                                    <div class="flex justify-between text-sm"><span class="text-gray-500">ID:</span><span
+                                            class="font-mono font-medium text-gray-900">EC/TN/2022/789</span></div>
+                                    <div class="flex justify-between text-sm"><span
+                                            class="text-gray-500">Authority:</span><span
+                                            class="text-gray-900 font-medium">Pollution Control Bd</span></div>
+                                    <div class="flex justify-between text-sm"><span class="text-gray-500">Valid:</span><span
+                                            class="text-blue-600 font-bold">2027-03-20</span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="cert-card p-8">
+                                <div class="flex items-start justify-between mb-6">
+                                    <div class="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"
+                                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" class="text-blue-600">
+                                            <path
+                                                d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z">
+                                            </path>
+                                        </svg>
+                                    </div>
+                                    <span
+                                        class="status-badge px-3 py-1 rounded-full text-xs font-semibold text-green-800 border border-green-200">Active</span>
+                                </div>
+                                <h3 class="text-xl font-bold text-gray-900 mb-3">Safety Certification</h3>
+                                <p class="text-gray-600 text-sm mb-6 leading-relaxed flex-grow">Site safety management and
+                                    hazard protocol certification.</p>
+                                <div class="space-y-3 pt-4 border-t border-gray-100">
+                                    <div class="flex justify-between text-sm"><span class="text-gray-500">ID:</span><span
+                                            class="font-mono font-medium text-gray-900">SPC/TN/2023/456</span></div>
+                                    <div class="flex justify-between text-sm"><span
+                                            class="text-gray-500">Authority:</span><span
+                                            class="text-gray-900 font-medium">Ind. Safety & Health</span></div>
+                                    <div class="flex justify-between text-sm"><span class="text-gray-500">Valid:</span><span
+                                            class="text-blue-600 font-bold">2025-09-30</span></div>
+                                </div>
+                            </div>
+                        </div>
+    
+                    </div>
+                    <div class="swiper-pagination !bottom-0"></div>
+                </div>
+    
+            </div>
+        </section>
+    
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    
+        <script>
+            var swiper = new Swiper(".certSwiper", {
+                effect: "coverflow",
+                grabCursor: true,
+                centeredSlides: true,
+                slidesPerView: "auto",
+                initialSlide: 1, // Start on the second card (ISO) so left/right are visible
+                coverflowEffect: {
+                    rotate: 20,     // Angle of the side cards
+                    stretch: 0,
+                    depth: 350,     // Perspective depth
+                    modifier: 1,
+                    slideShadows: false, // Turned off default shadows, using CSS shadows instead for cleaner look
+                },
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                },
+                autoplay: {
+                    delay: 3000,
+                    disableOnInteraction: false,
+                    pauseOnMouseEnter: true,
+                },
+                // Responsive breakpoints to adjust depth/rotate on mobile
+                breakpoints: {
+                    320: {
+                        coverflowEffect: {
+                            rotate: 30,
+                            depth: 200,
+                        }
+                    },
+                    768: {
+                        coverflowEffect: {
+                            rotate: 20,
+                            depth: 350,
+                        }
+                    }
+                }
+            });
+        </script>
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4">
+    
+            <div class="text-center mb-16">
+                <h2 class="text-3xl lg:text-4xl font-bold text-slate-900 mb-4 tracking-tight">Compliance Excellence</h2>
+                <p class="text-lg text-slate-500 max-w-2xl mx-auto">
+                    Adhering to strict regulatory frameworks across every stage of construction.
+                </p>
+            </div>
+    
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+    
+                <div class="compliance-card group">
+                    <div
+                        class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-blue-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left">
+                    </div>
+    
+                    <div class="mb-6 relative">
+                        <div
+                            class="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-600 group-hover:bg-blue-600 group-hover:text-white group-hover:rotate-3 transition-all duration-300 ease-out shadow-sm group-hover:shadow-blue-200">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect width="16" height="20" x="4" y="2" rx="2" ry="2"></rect>
+                                <path d="M9 22v-4h6v4"></path>
+                                <path d="M8 6h.01"></path>
+                                <path d="M16 6h.01"></path>
+                                <path d="M12 6h.01"></path>
+                                <path d="M12 10h.01"></path>
+                                <path d="M12 14h.01"></path>
+                                <path d="M16 10h.01"></path>
+                                <path d="M16 14h.01"></path>
+                                <path d="M8 10h.01"></path>
+                                <path d="M8 14h.01"></path>
+                            </svg>
+                        </div>
+                    </div>
+    
+                    <h3 class="text-xl font-bold text-slate-900 mb-4 group-hover:text-blue-700 transition-colors">Building
+                        Regulations</h3>
+    
+                    <ul class="space-y-3">
+                        <li class="compliance-item">
+                            <span class="check-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M20 6 9 17l-5-5" />
+                                </svg></span>
+                            <span class="text-sm font-medium text-slate-600">TN Building Rules 2019</span>
+                        </li>
+                        <li class="compliance-item">
+                            <span class="check-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M20 6 9 17l-5-5" />
+                                </svg></span>
+                            <span class="text-sm font-medium text-slate-600">National Building Code</span>
+                        </li>
+                        <li class="compliance-item">
+                            <span class="check-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M20 6 9 17l-5-5" />
+                                </svg></span>
+                            <span class="text-sm font-medium text-slate-600">DTCP &amp; CMDA Approvals</span>
+                        </li>
+                        <li class="compliance-item">
+                            <span class="check-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M20 6 9 17l-5-5" />
+                                </svg></span>
+                            <span class="text-sm font-medium text-slate-600">Fire Safety Clearances</span>
+                        </li>
+                    </ul>
+                </div>
+    
+                <div class="compliance-card group">
+                    <div
+                        class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-blue-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left">
+                    </div>
+    
+                    <div class="mb-6 relative">
+                        <div
+                            class="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-600 group-hover:bg-blue-600 group-hover:text-white group-hover:rotate-3 transition-all duration-300 ease-out shadow-sm group-hover:shadow-blue-200">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z">
+                                </path>
+                                <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path>
+                            </svg>
+                        </div>
+                    </div>
+    
+                    <h3 class="text-xl font-bold text-slate-900 mb-4 group-hover:text-blue-700 transition-colors">
+                        Environmental</h3>
+    
+                    <ul class="space-y-3">
+                        <li class="compliance-item">
+                            <span class="check-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M20 6 9 17l-5-5" />
+                                </svg></span>
+                            <span class="text-sm font-medium text-slate-600">Impact Assessment</span>
+                        </li>
+                        <li class="compliance-item">
+                            <span class="check-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M20 6 9 17l-5-5" />
+                                </svg></span>
+                            <span class="text-sm font-medium text-slate-600">PCB Clearance</span>
+                        </li>
+                        <li class="compliance-item">
+                            <span class="check-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M20 6 9 17l-5-5" />
+                                </svg></span>
+                            <span class="text-sm font-medium text-slate-600">Pollution Norms</span>
+                        </li>
+                        <li class="compliance-item">
+                            <span class="check-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M20 6 9 17l-5-5" />
+                                </svg></span>
+                            <span class="text-sm font-medium text-slate-600">Green Standards</span>
+                        </li>
+                    </ul>
+                </div>
+    
+                <div class="compliance-card group">
+                    <div
+                        class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-blue-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left">
+                    </div>
+    
+                    <div class="mb-6 relative">
+                        <div
+                            class="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-600 group-hover:bg-blue-600 group-hover:text-white group-hover:rotate-3 transition-all duration-300 ease-out shadow-sm group-hover:shadow-blue-200">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path
+                                    d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z">
+                                </path>
+                            </svg>
+                        </div>
+                    </div>
+    
+                    <h3 class="text-xl font-bold text-slate-900 mb-4 group-hover:text-blue-700 transition-colors">Safety
+                        Standards</h3>
+    
+                    <ul class="space-y-3">
+                        <li class="compliance-item">
+                            <span class="check-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M20 6 9 17l-5-5" />
+                                </svg></span>
+                            <span class="text-sm font-medium text-slate-600">Worker Safety Training</span>
+                        </li>
+                        <li class="compliance-item">
+                            <span class="check-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M20 6 9 17l-5-5" />
+                                </svg></span>
+                            <span class="text-sm font-medium text-slate-600">Equipment Protocols</span>
+                        </li>
+                        <li class="compliance-item">
+                            <span class="check-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M20 6 9 17l-5-5" />
+                                </svg></span>
+                            <span class="text-sm font-medium text-slate-600">Emergency Plans</span>
+                        </li>
+                        <li class="compliance-item">
+                            <span class="check-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M20 6 9 17l-5-5" />
+                                </svg></span>
+                            <span class="text-sm font-medium text-slate-600">Safety Audits</span>
+                        </li>
+                    </ul>
+                </div>
+    
+                <div class="compliance-card group">
+                    <div
+                        class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-blue-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left">
+                    </div>
+    
+                    <div class="mb-6 relative">
+                        <div
+                            class="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-600 group-hover:bg-blue-600 group-hover:text-white group-hover:rotate-3 transition-all duration-300 ease-out shadow-sm group-hover:shadow-blue-200">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="8" r="6"></circle>
+                                <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"></path>
+                            </svg>
+                        </div>
+                    </div>
+    
+                    <h3 class="text-xl font-bold text-slate-900 mb-4 group-hover:text-blue-700 transition-colors">Quality
+                        Assurance</h3>
+    
+                    <ul class="space-y-3">
+                        <li class="compliance-item">
+                            <span class="check-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M20 6 9 17l-5-5" />
+                                </svg></span>
+                            <span class="text-sm font-medium text-slate-600">ISO 9001:2015</span>
+                        </li>
+                        <li class="compliance-item">
+                            <span class="check-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M20 6 9 17l-5-5" />
+                                </svg></span>
+                            <span class="text-sm font-medium text-slate-600">Material Testing</span>
+                        </li>
+                        <li class="compliance-item">
+                            <span class="check-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M20 6 9 17l-5-5" />
+                                </svg></span>
+                            <span class="text-sm font-medium text-slate-600">Third-party Audits</span>
+                        </li>
+                        <li class="compliance-item">
+                            <span class="check-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M20 6 9 17l-5-5" />
+                                </svg></span>
+                            <span class="text-sm font-medium text-slate-600">Continuous Improve.</span>
+                        </li>
+                    </ul>
+                </div>
+    
+            </div>
+        </div>
+    
+        <style>
+            .compliance-card {
+                position: relative;
+                background: white;
+                padding: 2rem;
+                border-radius: 1rem;
+                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+                border: 1px solid #e2e8f0;
+                overflow: hidden;
+                transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            }
+    
+            .compliance-card:hover {
+                transform: translateY(-8px);
+                box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+                border-color: #cbd5e1;
+            }
+    
+            /* List Items */
+            .compliance-item {
+                display: flex;
+                align-items: center;
+                gap: 0.75rem;
+                padding: 0.25rem 0;
+                transition: transform 0.2s ease;
+            }
+    
+            /* Slight slide right on list item hover */
+            .compliance-item:hover {
+                transform: translateX(4px);
+            }
+    
+            .compliance-item:hover span.text-sm {
+                color: #2563eb;
+                /* Blue-600 text hover */
+            }
+    
+            /* Check Icon Styling */
+            .check-icon {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: #10b981;
+                /* Keep Checkmarks Green for "Success/Compliance" semantic */
+                transition: all 0.3s ease;
+            }
+    
+            /* On card hover, the checkmark gets a subtle bounce/pop */
+            .compliance-card:hover .check-icon {
+                transform: scale(1.1);
+            }
+        </style>
+        </section>
+
+    <!-- Government registration & quick facts -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-3xl lg:text-4xl font-bold text-center text-gray-900 mb-6">Government Registration &amp;
+                Approvals</h2>
+                <p class="text-lg text-gray-600 mb-6 mx-5 leading-relaxed">MSQUARE Builders is fully registered and
+                    approved by the Tamil Nadu government for all types of construction projects, ensuring complete
+                    legal compliance and eligibility for government tenders.</p>
+            <div class="grid lg:grid-cols-2 gap-4 items-center">
+                <div>
+                    
+
+                    <div class="space-y-4">
+                        <div class="flex items-center space-x-3"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-check-circle text-green-500 mt-0.5 flex-shrink-0">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                            <path d="m9 11 3 3L22 4"></path>
+                        </svg><span class="text-gray-700">Tamil Nadu PWD Contractor
+                                Registration - Class A</span></div>
+                        <div class="flex items-center space-x-3"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-check-circle text-green-500 mt-0.5 flex-shrink-0">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                            <path d="m9 11 3 3L22 4"></path>
+                        </svg><span class="text-gray-700">TNEB Electrical Contractor
+                                License</span></div>
+                        <div class="flex items-center space-x-3"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-check-circle text-green-500 mt-0.5 flex-shrink-0">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                            <path d="m9 11 3 3L22 4"></path>
+                        </svg><span class="text-gray-700">Tamil Nadu Water Supply
+                                &amp; Drainage Approval</span></div>
+                        <div class="flex items-center space-x-3"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-check-circle text-green-500 mt-0.5 flex-shrink-0">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                            <path d="m9 11 3 3L22 4"></path>
+                        </svg><span class="text-gray-700">Municipal Corporation
+                                Building Permit Authority</span></div>
+                        <div class="flex items-center space-x-3"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-check-circle text-green-500 mt-0.5 flex-shrink-0">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                            <path d="m9 11 3 3L22 4"></path>
+                        </svg><span class="text-gray-700">DTCP &amp; CMDA Approved
+                                Contractor Status</span></div>
+                        <div class="flex items-center space-x-3"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-check-circle text-green-500 mt-0.5 flex-shrink-0">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                            <path d="m9 11 3 3L22 4"></path>
+                        </svg><span class="text-gray-700">Labour License &amp;
+                                Contract Labour Registration</span></div>
+                    </div>
+                </div>
+
+                <div class="bg-blue-50 p-6 m-4 rounded-lg">
+                    <h3 class="text-2xl font-bold text-blue-900 mb-6">Quick Facts</h3>
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-blue-600">15+</div>
+                            <div class="text-gray-700">Years Licensed</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-blue-600">100%</div>
+                            <div class="text-gray-700">Compliance Rate</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-blue-600">50+</div>
+                            <div class="text-gray-700">Govt Projects</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-blue-600">Zero</div>
+                            <div class="text-gray-700">Legal Issues</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-gray-50 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4">
+    
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-slate-900 mb-3 tracking-tight">Downloads & Resources</h2>
+                <p class="text-slate-500 max-w-2xl mx-auto">Official documentation for tender submissions and partner
+                    evaluation.</p>
+            </div>
+    
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+    
+                <a href="/docs/company-profile.pdf" download class="doc-card group">
+                    <svg class="watermark-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
+                            d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                    </svg>
+    
+                    <div class="relative flex items-center gap-5 z-10">
+                        <div
+                            class="icon-box bg-blue-50 text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">
+                            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                            </svg>
+                        </div>
+    
+                        <div class="flex-1 min-w-0">
+                            <div class="flex items-center gap-2 mb-1">
+                                <h3
+                                    class="text-base font-bold text-slate-800 truncate group-hover:text-blue-700 transition-colors">
+                                    Company Profile</h3>
+                                <span class="badge">2.5 MB</span>
+                            </div>
+                            <p class="text-xs text-slate-500 leading-relaxed line-clamp-2">Comprehensive portfolio and
+                                capability statement.</p>
+                        </div>
+    
+                        <div class="action-btn">
+                            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                            </svg>
+                        </div>
+                    </div>
+                </a>
+    
+                <a href="/docs/certificates.pdf" download class="doc-card group">
+                    <svg class="watermark-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
+                            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <div class="relative flex items-center gap-5 z-10">
+                        <div
+                            class="icon-box bg-blue-50 text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">
+                            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                            </svg>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <div class="flex items-center gap-2 mb-1">
+                                <h3
+                                    class="text-base font-bold text-slate-800 truncate group-hover:text-blue-700 transition-colors">
+                                    Certificates Bundle</h3>
+                                <span class="badge">5.2 MB</span>
+                            </div>
+                            <p class="text-xs text-slate-500 leading-relaxed line-clamp-2">All current certifications and
+                                government approvals.</p>
+                        </div>
+                        <div class="action-btn">
+                            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                            </svg>
+                        </div>
+                    </div>
+                </a>
+    
+                <a href="/docs/financials.pdf" download class="doc-card group">
+                    <svg class="watermark-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
+                            d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <div class="relative flex items-center gap-5 z-10">
+                        <div
+                            class="icon-box bg-blue-50 text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">
+                            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                            </svg>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <div class="flex items-center gap-2 mb-1">
+                                <h3
+                                    class="text-base font-bold text-slate-800 truncate group-hover:text-blue-700 transition-colors">
+                                    Financial Statements</h3>
+                                <span class="badge">1.8 MB</span>
+                            </div>
+                            <p class="text-xs text-slate-500 leading-relaxed line-clamp-2">Audited statements and turnover
+                                certificates.</p>
+                        </div>
+                        <div class="action-btn">
+                            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                            </svg>
+                        </div>
+                    </div>
+                </a>
+    
+                <a href="/docs/portfolio.pdf" download class="doc-card group">
+                    <svg class="watermark-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
+                            d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                    </svg>
+                    <div class="relative flex items-center gap-5 z-10">
+                        <div
+                            class="icon-box bg-blue-50 text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">
+                            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                            </svg>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <div class="flex items-center gap-2 mb-1">
+                                <h3
+                                    class="text-base font-bold text-slate-800 truncate group-hover:text-blue-700 transition-colors">
+                                    Project Portfolio</h3>
+                                <span class="badge">8.7 MB</span>
+                            </div>
+                            <p class="text-xs text-slate-500 leading-relaxed line-clamp-2">Detailed case studies of
+                                completed projects.</p>
+                        </div>
+                        <div class="action-btn">
+                            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                            </svg>
+                        </div>
+                    </div>
+                </a>
+    
+            </div>
+        </div>
+    
+        <style>
+            /* Card Base */
+            .doc-card {
+                position: relative;
+                background: white;
+                padding: 1rem 1.25rem;
+                border-radius: 1rem;
+                border: 1px solid #e2e8f0;
+                overflow: hidden;
+                transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                /* Stagger animation setup */
+                opacity: 0;
+                transform: translateY(20px);
+            }
+    
+            /* Hover State - UNIFIED BLUE */
+            .doc-card:hover {
+                transform: translateY(-4px);
+                box-shadow: 0 12px 24px -8px rgba(0, 0, 0, 0.08), 0 4px 8px -4px rgba(0, 0, 0, 0.04);
+                border-color: #3b82f6;
+                /* Blue-500 */
+            }
+    
+            /* Icon Box */
+            .icon-box {
+                width: 3rem;
+                height: 3rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 0.75rem;
+                flex-shrink: 0;
+            }
+    
+            /* Badge */
+            .badge {
+                background-color: #f1f5f9;
+                color: #64748b;
+                font-size: 0.7rem;
+                font-weight: 600;
+                padding: 2px 8px;
+                border-radius: 999px;
+                white-space: nowrap;
+            }
+    
+            /* Action Button - UNIFIED BLUE */
+            .action-btn {
+                width: 2.5rem;
+                height: 2.5rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 999px;
+                border: 1px solid #dbeafe;
+                /* blue-100 */
+                color: #2563eb;
+                /* blue-600 */
+                background: transparent;
+                transition: all 0.3s ease;
+            }
+    
+            .doc-card:hover .action-btn {
+                background-color: #2563eb;
+                border-color: #2563eb;
+                color: white;
+                transform: scale(1.1);
+            }
+    
+            /* Decorative Watermark */
+            .watermark-icon {
+                position: absolute;
+                right: -1rem;
+                bottom: -1rem;
+                width: 7rem;
+                height: 7rem;
+                color: #f1f5f9;
+                transform: rotate(-10deg);
+                z-index: 0;
+                transition: transform 0.5s ease;
+            }
+    
+            .doc-card:hover .watermark-icon {
+                transform: rotate(0deg) scale(1.1);
+                color: #f8fafc;
+            }
+    
+            /* Animation class for JS */
+            .doc-card.reveal-visible {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        </style>
+    
+        <script>
+            (function () {
+                // Simple Intersection Observer to stagger animate the cards
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach((entry, index) => {
+                        if (entry.isIntersecting) {
+                            // Add delay based on index for stagger effect
+                            setTimeout(() => {
+                                entry.target.classList.add('reveal-visible');
+                            }, index * 100);
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.1 });
+
+                document.querySelectorAll('.doc-card').forEach(card => {
+                    observer.observe(card);
+                });
+            })();
+        </script>
+        </section>
+
+    <section class="bg-blue-600 py-16">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <h2 class="text-3xl lg:text-4xl font-bold text-white mb-4">Need Compliance Documentation?</h2>
+            <p class="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">Contact us for specific compliance documents or
+                certification queries for your tender requirements.</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button
+                    class="bg-white hover:bg-gray-100 text-blue-600 px-8 py-4 rounded-lg font-semibold transition-colors">Request
+                    Documents</button>
+                <a href="mailto:compliance@msquarebuilders.in"
+                    class="border-2 border-white hover:bg-white hover:text-blue-600 text-white px-8 py-4 rounded-lg font-semibold transition-colors">Email:
+                    compliance@msquarebuilders.in</a>
+            </div>
+        </div>
+    </section>
+</div>
+</body>
+
+</html>
