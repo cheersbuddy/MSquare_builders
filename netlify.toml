@@ -3,6 +3,5 @@
   publish = "public"
 
 [build.environment]
+  HUGO_VERSION = "0.145.0"
   HUGO_ENABLEGITINFO = "true"
-  # optional pin (uncomment & set your version if needed)
-  # HUGO_VERSION = "0.113.0"
