@@ -1,0 +1,88 @@
+<!-- Top info bar -->
+<div class="bg-blue-900 text-white py-2 px-4">
+  <div class="max-w-7xl mx-auto flex justify-between items-center text-sm">
+    <div class="flex items-center space-x-6">
+      <div class="flex items-center space-x-3">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path
+            d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72">
+          </path>
+        </svg>
+        <span>+91 98765 43210</span>
+      </div>
+      <div class="flex items-center space-x-3">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect width="20" height="14" x="2" y="5" rx="2"></rect>
+          <path d="M22 7L12 13 2 7"></path>
+        </svg>
+        <span>info@msquarebuilders.in</span>
+      </div>
+    </div>
+    <div class="hidden md:block">
+      <span>Government Approved Contractors | Tamil Nadu PWD Registered</span>
+    </div>
+  </div>
+</div>
+
+<!-- Main navigation -->
+<nav class="bg-white shadow-lg sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="flex justify-between items-center py-4">
+      <a class="flex items-center space-x-3" href="/">
+        <div class="w-12 h-12 bg-gradient-to-r from-blue-600 to-blue-800 rounded-lg flex items-center justify-center">
+          <span class="text-white font-bold text-xl">M²</span>
+        </div>
+        <div>
+          <h1 class="text-2xl font-bold text-gray-900">MSQUARE Builders</h1>
+          <p class="text-sm text-gray-600">Excellence in Construction</p>
+        </div>
+      </a>
+
+      <div class="hidden lg:flex items-center space-x-8">
+        <a class="text-sm font-medium transition-colors duration-200 text-blue-600 border-b-2 border-blue-600 pb-1"
+          href="/">Home</a>
+        <a class="nav-link text-sm font-medium transition-colors duration-200 text-gray-700 hover:text-blue-600"
+        href="{{ "/about/" | relURL }}">About Us</a>
+        <a class="text-sm font-medium transition-colors duration-200 text-gray-700 hover:text-blue-600"
+          href="/services">Services</a>
+        <a class="text-sm font-medium transition-colors duration-200 text-gray-700 hover:text-blue-600"
+          href="/projects">Projects</a>
+        <a class="text-sm font-medium transition-colors duration-200 text-gray-700 hover:text-blue-600"
+          href="/compliance">Compliance</a>
+        <a class="text-sm font-medium transition-colors duration-200 text-gray-700 hover:text-blue-600"
+          href="/contact">Contact</a>
+        <a class="text-sm font-medium transition-colors duration-200 text-gray-700 hover:text-blue-600"
+          href="/careers">Careers</a>
+      </div>
+
+      <div class="flex items-center space-x-3">
+        <a class="hidden md:inline-block px-4 py-2 border rounded text-sm" href="tel:+919876543210">Call</a>
+        <button @click="$dispatch('open-contact')"
+          class="px-4 py-2 bg-indigo-600 text-white rounded btn btn-primary">Get Free Quote</button>
+      </div>
+
+      <!-- mobile menu trigger -->
+      <button class="lg:hidden text-gray-700 ml-3" aria-label="menu" onclick="toggleMobileMenu()">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-width="2">
+          <line x1="4" x2="20" y1="6" y2="6" />
+          <line x1="4" x2="20" y1="12" y2="12" />
+          <line x1="4" x2="20" y1="18" y2="18" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- animated mobile menu -->
+  <div id="mobile-menu" class="lg:hidden hidden px-4 pb-6">
+    <div class="space-y-3">
+      <a class="block text-gray-700" href="/">Home</a>
+      <a class=" nav-link block text-gray-700" href="{{ " /about/" | relURL }}">About</a>
+      <a class="block text-gray-700" href="/services">Services</a>
+      <a class="block text-gray-700" href="/projects">Projects</a>
+      <a class="block text-gray-700" href="/contact">Contact</a>
+    </div>
+  </div>
+</nav>

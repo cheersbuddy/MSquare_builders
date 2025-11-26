@@ -1,0 +1,27 @@
+baseURL = "https://example.com/"
+languageCode = "en-us"
+title = "MSquare Builders — Demo"
+enableRobotsTXT = true
+
+[params]
+  company = "MSquare Builders"
+  description = "Premium residential and commercial projects"
+
+[permalinks]
+  projects = "/projects/:slug/"
+
+[outputs]
+  home = ["HTML", "RSS"]
+
+# Add menu so header can render Projects
+[menu]
+  [[menu.main]]
+    identifier = "projects"
+    name = "Projects"
+    url = "/projects/"
+    weight = 20
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true

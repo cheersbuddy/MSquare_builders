@@ -1,0 +1,36 @@
+projects:
+  - id: tn-rural
+    title: "Tamil Nadu Rural Infrastructure Development"
+    category: "Government"
+    rating: 5
+    short: "Complete rural infrastructure development including roads, water supply, and community buildings."
+    value: "₹2.5 Crores"
+    location: "Tiruchirappalli, Tamil Nadu"
+    duration: "18 Months"
+    client: "Tamil Nadu Government - Rural Development Department"
+    status: "Completed"
+    year: 2023
+    image: "/images/projects/tn-rural-lg.jpg"
+    features:
+      - "Road Construction"
+      - "Water Supply"
+      - "Community Centers"
+      - "Drainage Systems"
+
+  - id: coimbatore-township
+    title: "Premium Residential Township"
+    category: "Residential"
+    rating: 4.9
+    short: "Luxury residential township with 120 units, modern amenities, and green spaces."
+    value: "₹8 Crores"
+    location: "Coimbatore, Tamil Nadu"
+    duration: "24 Months"
+    client: "Private Developer"
+    status: "Completed"
+    year: 2022
+    image: "/images/projects/coimbatore-township-lg.jpg"
+    features:
+      - "120 Residential Units"
+      - "Club House"
+      - "Swimming Pool"
+      - "Children's Play Area"

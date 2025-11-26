@@ -1,0 +1,17 @@
+# Hugo output
+/public/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Node modules (if added)
+node_modules/
+
+# IDE
+.vscode/
+.idea/
+
+# logs and env
+npm-debug.log*
+.env

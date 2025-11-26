@@ -1,0 +1,13 @@
+- id: residential
+  title: Residential Construction
+  img: /images/services/residential.jpg
+  bullets:
+    - "Individual Houses & Villas"
+    - "Apartments & Residential Complexes"
+    - "Renovation & Extensions"
+- id: commercial
+  title: Commercial Construction
+  img: /images/services/commercial.jpg
+  bullets:
+    - "Office Buildings & Complexes"
+    - "Shopping Centers & Malls"

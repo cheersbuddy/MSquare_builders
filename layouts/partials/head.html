@@ -1,0 +1,34 @@
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>{{ if .Title }}{{ .Title }} | {{ end }}{{ .Site.Title }}</title>
+  <meta name="description"
+    content="{{ with .Params.description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+
+  <!-- Tailwind CDN for fast demo -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+  <!-- site CSS -->
+  <link rel="stylesheet" href="/css/main.css">
+
+  <!-- Icons: Lucide (use inline svg, but this gives convenience for any JS icons if needed) -->
+  <script src="https://unpkg.com/lucide/dist/lucide.min.js" defer></script>
+
+  <!-- Preload LCP if available -->
+  {{ with .Params.cover }}
+  <link rel="preload" as="image" href="/{{ . }}">
+  {{ end }}
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="{{ .Title }}">
+  <meta property="og:description" content="{{ .Summary }}">
+  {{ with .Params.cover }}
+  <meta property="og:image" content="/{{ . }}">{{ end }}
+
+  <!-- Basic theme color -->
+  <meta name="theme-color" content="#0f172a" />
+  <!-- Glide core CSS (required for correct track/slide baseline) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide@3.5.2/dist/css/glide.core.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide@3.5.2/dist/css/glide.theme.min.css">
+
+</head>

@@ -1,0 +1,533 @@
+/* assets/css/main.css
+   Minimal, focused animation and responsive improvements.
+*/
+
+/* layout container */
+.container {
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ---------- Reveal on scroll ---------- */
+.reveal {
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity 520ms cubic-bezier(.2, .9, .2, 1), transform 520ms cubic-bezier(.2, .9, .2, 1);
+    will-change: transform, opacity;
+}
+
+.reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* stagger helper: apply with inline style -- delay per element */
+.reveal-delay-100 {
+    transition-delay: 0.10s;
+}
+
+.reveal-delay-200 {
+    transition-delay: 0.18s;
+}
+
+.reveal-delay-300 {
+    transition-delay: 0.26s;
+}
+
+/* ---------- Cards & buttons ---------- */
+.card {
+    border-radius: 0.75rem;
+    background: white;
+    transition: transform 360ms cubic-bezier(.2, .9, .2, 1), box-shadow 360ms;
+    will-change: transform;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 18px 40px rgba(2, 6, 23, 0.12);
+}
+
+.btn {
+    transition: transform 180ms ease, box-shadow 180ms ease;
+    will-change: transform;
+}
+
+.btn:active {
+    transform: translateY(1px) scale(.996);
+}
+
+.btn-ghost:hover {
+    transform: translateY(-3px);
+}
+
+/* CTA primary shadow & micro bounce */
+.btn-primary {
+    box-shadow: 0 10px 30px rgba(2, 6, 23, 0.12);
+}
+
+@keyframes btn-bounce {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-4px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.btn-primary:hover {
+    animation: btn-bounce 720ms ease;
+}
+
+/* ---------- Hero floating accent ---------- */
+.hero-float {
+    position: absolute;
+    right: 1.25rem;
+    bottom: -1.5rem;
+    transform: translateZ(0);
+    transition: transform 600ms cubic-bezier(.2, .9, .2, 1);
+    will-change: transform;
+}
+
+.hero-float:hover {
+    transform: translateY(-8px) rotate(-1deg);
+}
+
+/* subtle floating background */
+@keyframes float-slow {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-6px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.float-slow {
+    animation: float-slow 6s ease-in-out infinite;
+}
+
+/* ---------- Mobile nav transitions ---------- */
+#mobile-menu {
+    transition: transform 320ms cubic-bezier(.2, .9, .2, 1), opacity 260ms;
+    transform-origin: top;
+}
+
+#mobile-menu.hidden {
+    opacity: 0;
+    transform: scaleY(.98);
+    pointer-events: none;
+}
+
+#mobile-menu.show {
+    opacity: 1;
+    transform: scaleY(1);
+    pointer-events: auto;
+}
+
+/* ---------- Responsive tweaks ---------- */
+@media (max-width: 1024px) {
+    .hero-headline {
+        font-size: 2.25rem;
+    }
+
+    /* md/large screens keep original */
+    .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .hero-headline {
+        font-size: 1.75rem;
+        line-height: 1.05;
+    }
+
+    .card {
+        border-radius: 0.6rem;
+    }
+}
+
+/* small accessibility: focus outlines for keyboard users */
+:focus {
+    outline: 3px solid rgba(59, 130, 246, 0.18);
+    outline-offset: 2px;
+}
+
+/* hide alpine-cloak elements until JS ready */
+[x-cloak] {
+    display: none !important;
+}
+/* =========================
+   Testimonials strict sizing + no-scale fixes
+   Append to bottom of main.css
+   ========================= */
+
+/* ensure base layout for testimonials glide */
+.glide.testimonials-glide {
+    position: relative;
+    width: 100%;
+    overflow: visible;
+    /* allows peek */
+}
+
+/* force single-row slides (protect against utility classes) */
+.glide.testimonials-glide .glide__slides {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    gap: 1.25rem !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    list-style: none !important;
+}
+
+/* control slide width per viewport via flex-basis (exact, reliable) */
+.glide.testimonials-glide .glide__slide {
+    flex: 0 0 auto !important;
+    box-sizing: border-box !important;
+    min-width: 0 !important;
+}
+
+/* Desktop — 3 columns */
+@media (min-width: 1280px) {
+    .glide.testimonials-glide .glide__slide {
+        width: calc((100% - 2 * 1.25rem) / 3) !important;
+        max-width: 420px !important;
+    }
+}
+
+/* Large/medium — 2 columns */
+@media (min-width: 768px) and (max-width: 1279px) {
+    .glide.testimonials-glide .glide__slide {
+        width: calc((100% - 1.25rem) / 2) !important;
+        max-width: 520px !important;
+    }
+}
+
+/* Mobile — 1 column (swipe) */
+@media (max-width: 767px) {
+    .glide.testimonials-glide .glide__slide {
+        width: 86vw !important;
+        max-width: 100% !important;
+    }
+
+    .glide.testimonials-glide {
+        padding-left: 0.75rem !important;
+        padding-right: 0.75rem !important;
+    }
+}
+
+/* Prevent active slide scaling from any previous theme rule */
+.glide.testimonials-glide .glide__slide--active,
+.glide.testimonials-glide .glide__slide--center {
+    transform: none !important;
+}
+
+/* Ensure card and image keep within slide bounds */
+.glide.testimonials-glide .card {
+    width: 100% !important;
+    height: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    overflow: hidden !important;
+}
+
+/* image container */
+.glide.testimonials-glide .img-wrap {
+    width: 100% !important;
+    height: 0;
+    padding-bottom: 56.25%;
+    /* 16:9 */
+    position: relative;
+    overflow: hidden;
+    border-radius: 0.5rem;
+    background: linear-gradient(180deg, #f6fbff, #fff);
+}
+
+/* image fills absolutely inside container for stable layout */
+.glide.testimonials-glide .img-wrap img {
+    position: absolute !important;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    transform: none !important;
+    transition: transform .7s cubic-bezier(.2, .9, .2, 1);
+}
+
+/* subtle hover zoom but only on pointer devices */
+@media (hover: hover) {
+    .glide.testimonials-glide .card:hover .img-wrap img {
+        transform: scale(1.03);
+    }
+}
+
+/* bullets & controls layering */
+.glide.testimonials-glide .glide__bullets,
+.glide.testimonials-glide .glide__controls {
+    z-index: 20;
+}
+
+/* small accessibility: reduce outline jump when glide handles focus */
+.glide.testimonials-glide :focus {
+    outline-offset: 3px;
+}
+/* Footer micro-interactions */
+footer .social-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.02);
+    transition: transform .18s cubic-bezier(.2, .9, .2, 1), background .18s;
+    color: #cbd5e1;
+    /* text-gray-300 */
+}
+
+footer .social-icon:hover,
+footer .social-icon:focus {
+    transform: translateY(-4px) scale(1.03);
+    background: rgba(14, 165, 233, 0.08);
+    /* subtle blue glow */
+    outline: none;
+}
+
+footer .social-icon svg {
+    width: 18px;
+    height: 18px;
+    color: inherit;
+}
+
+/* logo micro-float */
+footer .w-12 {
+    transition: transform .28s cubic-bezier(.2, .9, .2, 1);
+}
+
+footer .w-12:hover {
+    transform: translateY(-6px) rotate(-2deg);
+}
+
+/* improved address legibility on small screens */
+footer address {
+    font-style: normal;
+    line-height: 1.4;
+}
+
+/* keyboard focus */
+footer a:focus {
+    box-shadow: 0 4px 18px rgba(2, 6, 23, 0.12);
+    border-radius: 6px;
+}
+
+/* responsive tweaks */
+@media (max-width: 640px) {
+    footer .max-w-7xl {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    footer .col-span-1.lg\:col-span-2 {
+        grid-column: span 1 / span 1;
+    }
+}
+
+.filter-btn.active {
+    background: #0ea5e9;
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+.project-list-item {
+    transition: transform .32s ease, opacity .32s ease;
+}
+
+.project-list-item.filtered-out {
+    opacity: .28;
+    transform: scale(.995);
+    pointer-events: none;
+}
+/* About page small tweaks */
+.about-hero {
+    border-radius: .75rem;
+    box-shadow: 0 20px 40px rgba(2, 6, 23, 0.08);
+}
+
+@media (max-width: 1024px) {
+    .relative .absolute.-bottom-6 {
+        position: static !important;
+        transform: none !important;
+        margin-top: 1rem;
+    }
+
+    .relative img {
+        height: auto;
+    }
+
+    .timeline .absolute.left-1\/2 {
+        display: none;
+    }
+
+    /* make timeline stack on mobile */
+}
+
+/* Journey timeline styles — append to assets/css/main.css */
+
+/* container baseline */
+.journey-root {
+    position: relative;
+}
+
+/* central vertical line */
+.journey-line {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(14, 165, 233, 0.18), rgba(14, 165, 233, 0.06));
+    border-radius: 2px;
+    z-index: 0;
+    box-shadow: 0 8px 24px rgba(14, 165, 233, 0.04);
+    overflow: visible;
+}
+
+/* item base */
+.journey-item {
+    position: relative;
+    outline: none;
+}
+
+/* the dot that sits on the central line for each item (pseudo) */
+.journey-item::before {
+    content: "";
+    position: absolute;
+    left: calc(50% - 12px);
+    /* center the dot on the line */
+    top: 50%;
+    transform: translateY(-50%) scale(0.9);
+    width: 24px;
+    height: 24px;
+    background: white;
+    border-radius: 999px;
+    z-index: 6;
+    box-shadow: 0 6px 18px rgba(2, 6, 23, 0.08);
+    border: 4px solid rgba(14, 165, 233, 0.9);
+    transition: transform 360ms cubic-bezier(.2, .9, .2, 1), box-shadow 220ms;
+}
+
+/* pulsing ring */
+.journey-item::after {
+    content: "";
+    position: absolute;
+    left: calc(50% - 26px);
+    top: 50%;
+    transform: translateY(-50%);
+    width: 52px;
+    height: 52px;
+    border-radius: 999px;
+    background: radial-gradient(circle, rgba(14, 165, 233, 0.08) 0%, rgba(14, 165, 233, 0.00) 60%);
+    z-index: 5;
+    opacity: 0;
+    transition: opacity 320ms;
+}
+
+/* card visuals */
+.journey-card {
+    display: inline-block;
+    background: white;
+    padding: 1.25rem;
+    border-radius: .75rem;
+    box-shadow: 0 18px 40px rgba(2, 6, 23, 0.06);
+    transform: translateY(18px) scale(.995);
+    transition: transform 520ms cubic-bezier(.2, .9, .2, 1), box-shadow 320ms, opacity 420ms;
+    opacity: 0;
+}
+
+/* visible state (applied by JS when in view) */
+.journey-card.visible {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+}
+
+/* hover and focus micro-interaction on the whole item */
+.journey-item:focus .journey-card,
+.journey-item:hover .journey-card {
+    transform: translateY(-8px) scale(1.01);
+    box-shadow: 0 26px 60px rgba(2, 6, 23, 0.12);
+}
+
+/* dot enlarges on active/visible */
+.journey-item.visible::before {
+    transform: translateY(-50%) scale(1.06);
+    box-shadow: 0 16px 40px rgba(2, 6, 23, 0.12);
+}
+
+.journey-item.visible::after {
+    animation: journey-pulse 1400ms ease-out infinite;
+    opacity: 1;
+}
+
+@keyframes journey-pulse {
+    0% {
+        transform: translateY(-50%) scale(.8);
+        opacity: .45;
+    }
+
+    60% {
+        transform: translateY(-50%) scale(1.25);
+        opacity: 0.12;
+    }
+
+    100% {
+        transform: translateY(-50%) scale(1.6);
+        opacity: 0;
+    }
+}
+
+/* responsive behaviour: single column on mobile where left column becomes top content */
+@media (max-width: 1024px) {
+    .journey-line {
+        left: 28px;
+        transform: translateX(0);
+        width: 3px;
+    }
+
+    .journey-item::before {
+        left: 20px;
+    }
+
+    .journey-item::after {
+        left: 6px;
+    }
+
+    .journey-item {
+        display: block;
+        padding-left: 56px;
+    }
+
+    .journey-item .journey-card {
+        width: auto;
+        display: block;
+    }
+
+}
+
+/* small visual polish */
+.journey-card .text-2xl {
+    letter-spacing: -0.02em;
+}

@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+{{ partial "head.html" . }}
+
+<body class="antialiased bg-white text-slate-800">
+  {{ partial "header.html" . }}
+  <main>{{ block "main" . }}{{ .Content }}{{ end }}</main>
+  {{ partial "footer.html" . }}
+  {{ partial "contact-modal.html" . }}
+
+  <!-- scripts: Alpine + Glide (CDN) -->
+  <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
+
+  <script>
+    // init lucide (if used)
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.lucide) try { window.lucide.replace() } catch (e) { }
+    });
+
+    // Initialize glide sliders
+    window.addEventListener('load', () => {
+      document.querySelectorAll('.glide').forEach((el) => {
+        try { new Glide(el).mount() } catch (e) { console.warn(e) }
+      })
+    });
+
+    // IntersectionObserver reveal-on-scroll (lightweight)
+    (function () {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('revealed');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { root: null, rootMargin: '0px 0px -8% 0px', threshold: 0.12 });
+
+      // observe all reveals
+      document.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+      });
+    })();
+
+    // simple mobile menu toggle (used by header)
+    function toggleMobileMenu() {
+      const m = document.getElementById('mobile-menu');
+      if (!m) return;
+      m.classList.toggle('hidden');
+      m.classList.toggle('show');
+    }
+    // expose to global for onclick attribute in header (cheap and resilient)
+    window.toggleMobileMenu = toggleMobileMenu;
+  </script>
+<!-- Glide lib (CDN) + testimonials init -->
+<script src="https://cdn.jsdelivr.net/npm/@glidejs/glide@3.5.2/dist/glide.min.js" defer></script>
+<script src="/js/glide-testimonials.js" defer></script>
+
+
+
+
+  
+</body>
+
+</html>

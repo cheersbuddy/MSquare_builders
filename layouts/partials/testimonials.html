@@ -1,0 +1,173 @@
+<!-- layouts/partials/testimonials.html -->
+<section id="testimonials" class="bg-white py-20 reveal">
+    <div class="max-w-7xl mx-auto px-4">
+        <div class="text-center mb-10">
+            <h2 class="text-3xl lg:text-4xl font-bold text-gray-900">Testimonials</h2>
+            <p class="text-gray-600 max-w-2xl mx-auto mt-3">What our clients and partners say — real feedback from
+                projects across Tamil Nadu.</p>
+        </div>
+
+        <!-- Glide carousel -->
+        <div class="glide testimonials-glide" aria-label="Customer testimonials">
+
+            <div class="glide__track" data-glide-el="track">
+                <ul class="glide__slides">
+                    {{ $list := site.Data.testimonials.testimonials }}
+                    {{ if $list }}
+                    {{ range $i, $t := $list }}
+                    <li class="glide__slide">
+                        <article class="card p-4 flex flex-col items-stretch h-full">
+                            <div class="w-full overflow-hidden rounded-lg mb-4 img-wrap">
+                                <img src="{{ $t.image | absURL }}" alt="{{ $t.name }} — testimonial" loading="lazy"
+                                    class="w-full h-full object-cover">
+                            </div>
+                              
+                            <div class="flex-1">
+                                <p class="text-gray-700 mb-4 leading-relaxed">“{{ $t.quote }}”</p>
+                                <div class="flex items-center justify-between mt-4">
+                                    <div>
+                                        <div class="font-semibold text-gray-900">{{ $t.name }}</div>
+                                        <div class="text-sm text-gray-500">{{ $t.role }}</div>
+                                    </div>
+                                    <div class="text-yellow-400" aria-hidden="true">
+                                        {{ $r := cond (isset $t "rating") $t.rating 5 }}
+                                        {{ range seq 1 $r }}<svg class="w-4 h-4 inline-block" viewBox="0 0 20 20"
+                                            fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.966a1 1 0 00.95.69h4.18c.969 0 1.371 1.24.588 1.81l-3.388 2.46a1 1 0 00-.364 1.118l1.286 3.966c.3.921-.755 1.688-1.54 1.118L10 13.347l-3.388 2.46c-.785.57-1.84-.197-1.54-1.118l1.286-3.966a1 1 0 00-.364-1.118L2.606 9.393c-.783-.57-.38-1.81.588-1.81h4.18a1 1 0 00.95-.69L9.049 2.927z">
+                                            </path>
+                                        </svg>{{ end }}
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                    </li>
+                    {{ end }}
+                    {{ else }}
+                    <!-- fallback hardcoded slides (replace images with your assets) -->
+                    <li class="glide__slide">
+                        <article class="card p-4">
+                            <div class="w-full overflow-hidden rounded-lg mb-4" style="aspect-ratio: 16/9;">
+                                <img src="/images/testimonials/priya.jpg" alt="Customer testimonial" loading="lazy"
+                                    class="w-full h-full object-cover">
+                            </div>
+                            <p class="text-gray-700 mb-4">“MSQUARE delivered ahead of schedule and managed every
+                                regulatory requirement — trustworthy partner.”</p>
+                            <div class="flex items-center justify-between mt-4">
+                                <div>
+                                    <div class="font-semibold text-gray-900">S. Ramakrishnan</div>
+                                    <div class="text-sm text-gray-500">Resident, Coimbatore</div>
+                                </div>
+                                <div class="text-yellow-400" aria-hidden="true">
+                                    <svg class="w-4 h-4 inline-block" viewBox="0 0 20 20" fill="currentColor">
+                                        <path
+                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.966a1 1 0 00.95.69h4.18c.969 0 1.371 1.24.588 1.81l-3.388 2.46a1 1 0 00-.364 1.118l1.286 3.966c.3.921-.755 1.688-1.54 1.118L10 13.347l-3.388 2.46c-.785.57-1.84-.197-1.54-1.118l1.286-3.966a1 1 0 00-.364-1.118L2.606 9.393c-.783-.57-.38-1.81.588-1.81h4.18a1 1 0 00.95-.69L9.049 2.927z">
+                                        </path>
+                                    </svg>
+                                </div>
+                            </div>
+                        </article>
+                    </li>
+                    <li class="glide__slide">
+                        <article class="card p-4">
+                            <div class="w-full overflow-hidden rounded-lg mb-4" style="aspect-ratio: 16/9;">
+                                <img src="/images/testimonials/priya.jpg" alt="Customer testimonial" loading="lazy"
+                                    class="w-full h-full object-cover">
+                            </div>
+                            <p class="text-gray-700 mb-4">“MSQUARE delivered ahead of schedule and managed every
+                                regulatory requirement — trustworthy partner.”</p>
+                            <div class="flex items-center justify-between mt-4">
+                                <div>
+                                    <div class="font-semibold text-gray-900">S. Ramakrishnan</div>
+                                    <div class="text-sm text-gray-500">Resident, Coimbatore</div>
+                                </div>
+                                <div class="text-yellow-400" aria-hidden="true">
+                                    <svg class="w-4 h-4 inline-block" viewBox="0 0 20 20" fill="currentColor">
+                                        <path
+                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.966a1 1 0 00.95.69h4.18c.969 0 1.371 1.24.588 1.81l-3.388 2.46a1 1 0 00-.364 1.118l1.286 3.966c.3.921-.755 1.688-1.54 1.118L10 13.347l-3.388 2.46c-.785.57-1.84-.197-1.54-1.118l1.286-3.966a1 1 0 00-.364-1.118L2.606 9.393c-.783-.57-.38-1.81.588-1.81h4.18a1 1 0 00.95-.69L9.049 2.927z">
+                                        </path>
+                                    </svg>
+                                </div>
+                            </div>
+                        </article>
+                    </li>
+                                        <li class="glide__slide">
+                        <article class="card p-4">
+                            <div class="w-full overflow-hidden rounded-lg mb-4" style="aspect-ratio: 16/9;">
+                                <img src="/images/testimonials/priya.jpg" alt="Customer testimonial" loading="lazy"
+                                    class="w-full h-full object-cover">
+                            </div>
+                            <p class="text-gray-700 mb-4">“MSQUARE delivered ahead of schedule and managed every
+                                regulatory requirement — trustworthy partner.”</p>
+                            <div class="flex items-center justify-between mt-4">
+                                <div>
+                                    <div class="font-semibold text-gray-900">S. Ramakrishnan</div>
+                                    <div class="text-sm text-gray-500">Resident, Coimbatore</div>
+                                </div>
+                                <div class="text-yellow-400" aria-hidden="true">
+                                    <svg class="w-4 h-4 inline-block" viewBox="0 0 20 20" fill="currentColor">
+                                        <path
+                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.966a1 1 0 00.95.69h4.18c.969 0 1.371 1.24.588 1.81l-3.388 2.46a1 1 0 00-.364 1.118l1.286 3.966c.3.921-.755 1.688-1.54 1.118L10 13.347l-3.388 2.46c-.785.57-1.84-.197-1.54-1.118l1.286-3.966a1 1 0 00-.364-1.118L2.606 9.393c-.783-.57-.38-1.81.588-1.81h4.18a1 1 0 00.95-.69L9.049 2.927z">
+                                        </path>
+                                    </svg>
+                                </div>
+                            </div>
+                        </article>
+                    </li>
+                    {{ end }}
+                </ul>
+            </div>
+
+            <!-- Controls -->
+            <div class="flex items-center justify-between mt-6">
+                <div class="flex items-center space-x-3">
+                    <button class="testimonial-prev btn" data-glide-dir="<" aria-label="Previous testimonial">
+                        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M15 18l-6-6 6-6" />
+                        </svg>
+                    </button>
+                    <button class="testimonial-next btn" data-glide-dir=">" aria-label="Next testimonial">
+                        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M9 6l6 6-6 6" />
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- pagination dots (Glide will control) -->
+                <div class="glide__bullets" data-glide-el="controls[nav]" aria-label="testimonial bullets"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    // init glide for testimonial sections (safe re-init if multiple glides exist)
+    (function () {
+        if (typeof Glide === 'undefined') return;
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.glide').forEach((root) => {
+                // only initialize if not already mounted
+                if (root.dataset.glideMounted) return;
+                root.dataset.glideMounted = true;
+
+                try {
+                    const glide = new Glide(root, {
+                        type: 'carousel',
+                        perView: 3,
+                        gap: 24,
+                        autoplay: 4200,
+                        hoverpause: true,
+                        animationDuration: 600,
+                        breakpoints: {
+                            1024: { perView: 2 },
+                            640: { perView: 1 }
+                        }
+                    });
+                    glide.mount();
+                } catch (e) {
+                    console.warn('Glide init failed', e);
+                }
+            });
+        });
+    })();
+</script>

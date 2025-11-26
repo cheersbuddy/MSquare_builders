@@ -1,0 +1,6 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* project-specific small utilities */
+.prose { max-width: 65ch; }

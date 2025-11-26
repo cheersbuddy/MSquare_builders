@@ -1,0 +1,268 @@
+{{ define "main" }}
+<main>
+  <!-- Hero -->
+  <section
+    class="relative bg-gradient-to-r from-blue-900 via-blue-800 to-blue-700 text-white py-20 lg:py-32 overflow-hidden reveal">
+    <div class="absolute inset-0 bg-black opacity-20"></div>
+    <div class="absolute inset-0 bg-cover bg-center opacity-10"
+      style="background-image: url('https://images.pexels.com/photos/1178684/pexels-photo-1178684.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop');">
+    </div>
+
+    <div class="relative max-w-7xl mx-auto px-4 text-center">
+      <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight hero-headline reveal reveal-delay-100">Building Tamil
+        Nadu's <span class="block text-blue-300">Future Infrastructure</span></h1>
+      <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto leading-relaxed reveal reveal-delay-200">Government Approved
+        Contractors | 15+ Years of Excellence | ISO Certified Quality</p>
+
+      <div class="flex flex-col sm:flex-row gap-4 justify-center reveal reveal-delay-300">
+        <a href="/projects"
+          class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-semibold transition-all duration-200 flex items-center justify-center space-x-2 shadow-lg hover:shadow-xl btn btn-primary">
+          <span>View Our Projects</span>
+        </a>
+        <button @click="$dispatch('open-contact')"
+          class="border-2 border-white hover:bg-white hover:text-blue-900 text-white px-8 py-4 rounded-lg font-semibold transition-all duration-200 btn btn-ghost">Get
+          Free Quote</button>
+      </div>
+    </div>
+
+    <div class="hero-float float-slow hidden lg:block reveal reveal-delay-400" aria-hidden="true">
+      <div class="bg-white rounded-lg p-4 text-blue-700 shadow-lg">
+        <div class="text-2xl font-bold">M²</div>
+        <div class="text-xs">MSQUARE Builders</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- layouts/partials/stats.html -->
+  {{ partial "stats.html" . }}
+  
+  <!-- include the counter script (defer recommended) -->
+  <script src="{{ "js/stats-counter.js" | relURL }}" defer></script>
+  
+
+  <!-- About / badges -->
+  <section class="bg-gray-50 py-20 reveal">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-6 reveal reveal-delay-100">Government Approved
+            Construction Excellence in Tamil Nadu</h2>
+          <p class="text-lg text-gray-600 mb-6 leading-relaxed reveal reveal-delay-200">MSQUARE Builders has been the
+            trusted choice for construction projects across Tamil Nadu for over 15 years. We specialize in government
+            tenders, residential developments, and commercial infrastructure with full regulatory compliance.</p>
+
+          <div class="grid grid-cols-2 gap-4 mb-8">
+            <div class="flex items-center space-x-2 reveal reveal-delay-250"><svg class="w-5 h-5 text-green-500"
+                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                <path d="m9 11 3 3L22 4" />
+              </svg><span class="text-gray-700 text-sm">Tamil Nadu PWD Registered</span></div>
+            <div class="flex items-center space-x-2 reveal reveal-delay-260"><svg class="w-5 h-5 text-green-500"
+                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                <path d="m9 11 3 3L22 4" />
+              </svg><span class="text-gray-700 text-sm">ISO 9001:2015 Certified</span></div>
+            <div class="flex items-center space-x-2 reveal reveal-delay-270"><svg class="w-5 h-5 text-green-500"
+                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                <path d="m9 11 3 3L22 4" />
+              </svg><span class="text-gray-700 text-sm">MSME Registered</span></div>
+            <div class="flex items-center space-x-2 reveal reveal-delay-280"><svg class="w-5 h-5 text-green-500"
+                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                <path d="m9 11 3 3L22 4" />
+              </svg><span class="text-gray-700 text-sm">GST Compliant</span></div>
+            <div class="flex items-center space-x-2 reveal reveal-delay-300"><svg class="w-5 h-5 text-green-500"
+                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                <path d="m9 11 3 3L22 4" />
+              </svg><span class="text-gray-700 text-sm">Environmental Clearance</span></div>
+            <div class="flex items-center space-x-2 reveal reveal-delay-320"><svg class="w-5 h-5 text-green-500"
+                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                <path d="m9 11 3 3L22 4" />
+              </svg><span class="text-gray-700 text-sm">Safety Protocol Certified</span></div>
+          </div>
+
+          <a class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors inline-flex items-center space-x-2 btn btn-primary reveal reveal-delay-340"
+            href="/about">Learn More About Us</a>
+        </div>
+
+        <div class="relative reveal reveal-delay-360">
+          <img
+            src="https://images.pexels.com/photos/273209/pexels-photo-273209.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&fit=crop"
+            alt="Construction site in Tamil Nadu" class="rounded-lg shadow-2xl w-full">
+          <div class="absolute -bottom-6 -left-6 bg-blue-600 text-white p-6 rounded-lg shadow-lg">
+            <div class="text-2xl font-bold">15+</div>
+            <div class="text-sm">Years of Trust</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="bg-white py-20 reveal">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4 reveal reveal-delay-120">Comprehensive Construction
+          Services</h2>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto reveal reveal-delay-160">From residential homes to major
+          infrastructure projects, we deliver excellence across all construction sectors in Tamil Nadu.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="card p-6 reveal reveal-delay-200">
+          <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4"><svg
+              class="w-6 h-6 text-blue-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2">
+              <path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"></path>
+            </svg></div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-3">Residential Construction</h3>
+          <p class="text-gray-600 leading-relaxed">Quality homes with modern amenities and Tamil Nadu building standards
+            compliance.</p>
+        </div>
+
+        <div class="card p-6 reveal reveal-delay-240">
+          <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4"><svg
+              class="w-6 h-6 text-blue-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2">
+              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+            </svg></div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-3">Commercial &amp; Industrial</h3>
+          <p class="text-gray-600 leading-relaxed">Professional spaces designed for business growth and industrial
+            requirements.</p>
+        </div>
+
+        <div class="card p-6 reveal reveal-delay-280">
+          <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4"><svg
+              class="w-6 h-6 text-blue-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="8" r="6"></circle>
+            </svg></div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-3">Government Projects</h3>
+          <p class="text-gray-600 leading-relaxed">Specialized in government tenders with full regulatory compliance and
+            documentation.</p>
+        </div>
+
+        <div class="card p-6 reveal reveal-delay-320">
+          <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4"><svg
+              class="w-6 h-6 text-blue-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"></circle>
+            </svg></div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-3">Infrastructure Development</h3>
+          <p class="text-gray-600 leading-relaxed">Roads, bridges, and public infrastructure with quality assurance and
+            timely delivery.</p>
+        </div>
+      </div>
+
+      <div class="text-center mt-12 reveal reveal-delay-360">
+        <a class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors inline-flex items-center space-x-2 btn btn-primary"
+          href="/services">View All Services</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Projects -->
+  <section class="bg-gray-50 py-20 reveal">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4 reveal reveal-delay-140">Featured Government
+          Projects</h2>
+        <p class="text-lg text-gray-600 reveal reveal-delay-170">Showcasing our expertise in government-approved
+          construction projects across Tamil Nadu</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="card overflow-hidden reveal reveal-delay-200">
+          <img
+            src="https://images.pexels.com/photos/159306/construction-site-build-construction-work-159306.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop"
+            alt="Tamil Nadu Rural Infrastructure" class="w-full h-48 object-cover">
+          <div class="p-6">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-sm text-blue-600 font-medium">Government Project</span>
+              <div class="flex items-center"><svg class="w-4 h-4 text-yellow-400" xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24">
+                  <polygon
+                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                  </polygon>
+                </svg><span class="text-sm text-gray-600 ml-1">5.0</span></div>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-2">Tamil Nadu Rural Infrastructure</h3>
+            <div class="text-lg font-bold text-blue-600">₹2.5 Crores</div>
+          </div>
+        </div>
+
+        <div class="card overflow-hidden reveal reveal-delay-240">
+          <img
+            src="https://images.pexels.com/photos/323705/pexels-photo-323705.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop"
+            alt="Commercial Complex Chennai" class="w-full h-48 object-cover">
+          <div class="p-6">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-sm text-blue-600 font-medium">Commercial</span>
+              <div class="flex items-center"><svg class="w-4 h-4 text-yellow-400" xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24">
+                  <polygon
+                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                  </polygon>
+                </svg><span class="text-sm text-gray-600 ml-1">5.0</span></div>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-2">Commercial Complex Chennai</h3>
+            <div class="text-lg font-bold text-blue-600">₹5 Crores</div>
+          </div>
+        </div>
+
+        <div class="card overflow-hidden reveal reveal-delay-280">
+          <img
+            src="https://images.pexels.com/photos/186077/pexels-photo-186077.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop"
+            alt="Residential Township Coimbatore" class="w-full h-48 object-cover">
+          <div class="p-6">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-sm text-blue-600 font-medium">Residential</span>
+              <div class="flex items-center"><svg class="w-4 h-4 text-yellow-400" xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24">
+                  <polygon
+                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                  </polygon>
+                </svg><span class="text-sm text-gray-600 ml-1">5.0</span></div>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-2">Residential Township Coimbatore</h3>
+            <div class="text-lg font-bold text-blue-600">₹8 Crores</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center mt-12 reveal reveal-delay-360">
+        <a class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors inline-flex items-center space-x-2 btn btn-primary"
+          href="/projects">View All Projects</a>
+      </div>
+    </div>
+  </section>
+  
+  <!-- {{ partial "testimonials.html" . }} -->
+
+  <!-- CTA -->
+  <section class="bg-blue-600 py-16 reveal">
+    <div class="max-w-7xl mx-auto px-4 text-center">
+      <h2 class="text-3xl lg:text-4xl font-bold text-white mb-4 reveal reveal-delay-120">Ready to Start Your Next
+        Construction Project?</h2>
+      <p class="text-xl text-blue-100 mb-8 max-w-2xl mx-auto reveal reveal-delay-160">Get a free consultation and quote
+        from Tamil Nadu's most trusted government-approved builders.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center reveal reveal-delay-200">
+        <a class="bg-white hover:bg-gray-100 text-blue-600 px-8 py-4 rounded-lg font-semibold transition-colors btn btn-primary"
+          href="/contact">Get Free Quote</a>
+        <a href="tel:+919876543210"
+          class="border-2 border-white hover:bg-white hover:text-blue-600 text-white px-8 py-4 rounded-lg font-semibold transition-colors btn btn-ghost">Call
+          Now: +91 98765 43210</a>
+      </div>
+    </div>
+  </section>
+</main>
+{{ end }}

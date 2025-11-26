@@ -1,0 +1,27 @@
+{{/* layouts/partials/carousel.html */}}
+{{ $cover := .Params.cover }}
+{{ $gallery := .Params.gallery }}
+
+<div class="relative">
+  {{ if or $gallery $cover }}
+  <div class="overflow-hidden rounded-lg">
+    {{ if $gallery }}
+    <!-- Simple gallery: first image large, thumbnails below -->
+    <img id="project-main-image" src="{{ index $gallery 0 | relURL }}" alt="{{ .Title }}"
+      class="w-full h-80 object-cover rounded-lg">
+    <div class="mt-3 flex gap-2">
+      {{ range $i, $img := $gallery }}
+      <button class="w-20 h-14 overflow-hidden rounded-md border"
+        onclick="document.getElementById('project-main-image').src='{{ $img | relURL }}'">
+        <img src="{{ $img | relURL }}" alt="" class="w-full h-full object-cover">
+      </button>
+      {{ end }}
+    </div>
+    {{ else if $cover }}
+    <img src="{{ $cover | relURL }}" alt="{{ .Title }}" class="w-full h-80 object-cover rounded-lg">
+    {{ end }}
+  </div>
+  {{ else }}
+  <div class="bg-gray-100 w-full h-80 flex items-center justify-center text-gray-400">No images available</div>
+  {{ end }}
+</div>
