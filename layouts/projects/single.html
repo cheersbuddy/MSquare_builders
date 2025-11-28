@@ -3,15 +3,13 @@
   <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
     <div class="md:col-span-2">
       <h1 class="text-2xl font-bold">{{ .Title }}</h1>
-      <p class="text-sm text-slate-600 mt-1">{{ .Params.location }} • {{ .Params.status }}</p>
+      <p class="text-sm text-slate-600 mt-1">
+        {{ .Params.location }} • {{ .Params.status }}
+      </p>
 
-      <div class="mt-4">
-        {{ partial "carousel.html" . }}
-      </div>
+      <div class="mt-4">{{ partial "carousel.html" . }}</div>
 
-      <div class="prose mt-6">
-        {{ .Content }}
-      </div>
+      <div class="prose mt-6">{{ .Content }}</div>
     </div>
 
     <aside class="md:col-span-1 p-4 border rounded">
@@ -21,13 +19,19 @@
       </div>
 
       <div class="mb-4">
-        <a href="#" @click.prevent="$dispatch('open-contact')"
-          class="w-full inline-block text-center px-4 py-2 bg-indigo-600 text-white rounded">Enquire</a>
+        <a
+          href="#"
+          @click.prevent="$dispatch('open-contact')"
+          class="w-full inline-block text-center px-4 py-2 bg-indigo-600 text-white rounded"
+          >Enquire</a
+        >
       </div>
 
       {{ with .Params.brochure }}
       <div class="mb-4">
-        <a href="{{ . | relURL }}" class="text-sm underline">Download Brochure</a>
+        <a href="{{ . | relURL }}" class="text-sm underline"
+          >Download Brochure</a
+        >
       </div>
       {{ end }}
 
